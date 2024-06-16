@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>ElGamal Şifreleme</title>
+     <link rel="stylesheet" href="style.css">
+	
+</head>
+<body>
+<div class="container-wrapper">
+<div class="container">
+    <h1>ElGamal Şifreleme</h1>
+    
+    <div class="input-group">
+        <label for="p">p (Asal Sayı): </label>
+        <input type="text" id="p" required>
+    </div>
+    
+    <div class="input-group">
+        <label for="g">g (İlkel Kök): </label>
+        <input type="text" id="g" required>
+    </div>
+    
+    <div class="input-group">
+        <label for="a">x (Özel Anahtar) (1 <= a <= p-1): </label>
+        <input type="text" id="a" required>
+    </div>
+    
+    <div class="input-group">
+        <label for="m">m (Mesaj) (1 <= m <= p-1): </label>
+        <input type="text" id="m" required>
+    </div>
+
+    <button  style="background: #4848f4 !important;"onclick="generateKeys()">Anahtarları Oluştur</button>
+    <hr>
+    
+    <div class="input-group">
+        <label for="k">r (Şifreleme İçin Özel Anahtar) (1 <= k <= p-1): </label>
+        <input type="text" id="k" required>
+    </div>
+    
+    <button onclick="encrypt()">Şifrele</button>
+    <hr>
+    
+    <div class="input-group">
+        <label for="c1">Şifreli Metin (c1): </label>
+        <input type="text" id="c1" readonly>
+    </div>
+    
+    <div class="input-group">
+        <label for="c2">Şifreli Metin (c2): </label>
+        <input type="text" id="c2" readonly>
+    </div>
+   
+    <button style="background: rebeccapurple;" onclick="decrypt()" >Şifreyi Çöz</button>
+	<hr>
+	<h2>Proje Hakkında</h2>
+	<h3>Geliştiren: <u>Alperen İRTİK</u></h2>
+	<h3>Kullanım Hakkı: <u>Herkese Açık</u></h3>
+	<h3>Kullanılan Diller: HTML, CSS, JAVASCRIPT
+	<hr>
+	<a href="/github" download>
+  <button style="background: red; padding: 10px; color: white; border: none; cursor: pointer;">
+    Kaynak Kodları İndir
+  </button>
+</a>
+
+</div>
+
+
+<div class="container">
+<h1>ElGamal Algoritması</h1>
+
+<p><strong>p (Asal Sayı):</strong> Birinci büyük asal sayı. Bu sayı, algoritmanın temelini oluşturan ana modül (modulus) olarak kullanılır.</p>
+
+<p><strong>g (İlkel Kök):</strong> Modulo p üzerindeki bir ilkel kök. İlkel kök, tüm diğer sayıları mod p üzerinde oluşturabilen bir sayıdır.</p>
+
+<p><strong>x (Özel Anahtar):</strong> Şifreleme ve şifre çözme işlemlerinde kullanılan gizli özel anahtar. 1 ile p-1 arasında bir değerdir.</p>
+
+<p><strong>m (Mesaj):</strong> Şifrelemek istediğiniz asıl mesaj. 1 ile p-1 arasında bir değerdir.</p>
+
+<h2>Anahtarları Oluştur</h2>
+
+<ol>
+    <li>Kullanıcı, p ve g'yi seçer.</li>
+    <li>Kullanıcı bir özel anahtar x seçer ve A = g^x mod p hesaplanır. A, genel anahtar olacaktır.</li>
+    <li>Açık anahtar (pk) olarak (p, g, A) kullanıcıya verilir.</li>
+</ol>
+
+<p><strong>r (Şifreleme İçin Özel Anahtar):</strong> Mesajın güvenli bir şekilde iletilmesi için kullanılan bir rastgele sayıdır. 1 ile p-1 arasında bir değerdir.</p>
+
+<h2>Şifreleme</h2>
+
+<ol>
+    <li>Bob, Alice'in açık anahtarını (p, g, A) ve r'yi kullanarak c1 = g^r mod p'yi hesaplar.</li>
+    <li>c2 = (m * A^r) mod p hesaplanarak şifreli mesaj elde edilir: (c1, c2).</li>
+</ol>
+
+<p><strong>Şifreli Metin (c1, c2):</strong> Şifreleme sonucu elde edilen iki parçalı şifreli metindir.</p>
+
+<h2>Şifreyi Çözme</h2>
+
+<ol>
+    <li>Alice, özel anahtarı x kullanarak c1^x mod p'yi hesaplar ve bu değeri x^-1 ile çarpar.</li>
+    <li>Elde edilen değeri c2 ile çarparak orijinal mesajı elde eder.</li>
+</ol>
+</div>
+    
+</div>
+</div>
+
+
+
+
+
+<script defer src="script.js"></script>
+
+
+</body>
+</html>
+
+
