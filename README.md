@@ -1,3 +1,5 @@
+<img src="https://github.com/alperenirtik/elgamalsifreleme/blob/main/elgamal-sifreleme.PNG?raw=true" alt="Js El Gamal Şifreleme">
+
 # ElGamal Şifreleme Aracı (HTML - JS)
 
 Bu proje, ElGamal şifreleme algoritmasını kullanarak mesajları şifrelemek ve çözmek için bir arayüz sağlar. Kullanıcılar, p (asal sayı), g (ilkel kök), a (özel anahtar), m (mesaj) ve k (şifreleme anahtarı) gibi parametreleri girerek şifreleme işlemlerini gerçekleştirebilirler.
